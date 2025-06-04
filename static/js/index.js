@@ -76,3 +76,24 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+
+// Teaser video rotation
+document.addEventListener('DOMContentLoaded', function() {
+  const teaserVideo = document.getElementById('teaser');
+  const videoSources = [
+    './static/videos/174.seed-44.mp4',
+    './static/videos/more_samples/e448e72e5793b76a65806a0a8cd69c07.seed-42.mp4',
+    './static/videos/more_samples/f394d79a45306591a508343aabbe414b.seed-42.mp4'
+  ];
+  
+  let currentIndex = 0;
+  
+  function switchVideo() {
+    currentIndex = (currentIndex + 1) % videoSources.length;
+    teaserVideo.src = videoSources[currentIndex];
+    teaserVideo.load();
+  }
+  
+  // Switch video every 5 seconds
+  setInterval(switchVideo, 5000);
+});
